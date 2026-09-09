@@ -103,3 +103,9 @@ each run separately. Without the split you get a stripe across the plate.
 Pushing to `main` runs `.github/workflows/pages.yml`, which uploads the repo
 root and deploys it to <https://joshhambright.github.io/vintage-snake/>. There
 is no build step to break.
+
+**One-time setup:** in **Settings → Pages → Build and deployment**, set *Source*
+to **GitHub Actions**. A workflow's `GITHUB_TOKEN` is not permitted to create
+the Pages site itself, so the first deploy fails until this is switched on. Once
+it is, re-run the workflow from the Actions tab and every later push deploys on
+its own.

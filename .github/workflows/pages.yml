@@ -23,11 +23,9 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+      # Requires Settings -> Pages -> Source: "GitHub Actions" (one time; the
+      # workflow's GITHUB_TOKEN is not permitted to create the Pages site).
       - uses: actions/configure-pages@v5
-        # Turn Pages on for the repo if it isn't already, rather than needing a
-        # manual toggle in Settings before the first deploy can land.
-        with:
-          enablement: true
       # The game is a single static file at the repo root — nothing to build.
       - uses: actions/upload-pages-artifact@v3
         with:

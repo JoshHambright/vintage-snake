@@ -33,6 +33,13 @@ being opened.
 Live at <https://joshhambright.github.io/vintage-snake/>, deployed by
 `.github/workflows/pages.yml` on every push to `main`.
 
+If a Pages deploy fails with *"Create Pages site failed: Resource not accessible
+by integration"*, Pages is not switched on for the repo. A workflow's
+`GITHUB_TOKEN` cannot create the site — and `configure-pages`'s `enablement:
+true` does not help, it fails the same way. Someone with repo admin has to set
+**Settings → Pages → Source: GitHub Actions** once, by hand. Do not spend a
+cycle trying to automate around this.
+
 ## Constraints that are already settled
 
 Do not re-litigate these. They are the design, not defaults that happened.
